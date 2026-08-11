@@ -1,11 +1,21 @@
 
 
 function Home(){
+    const gameCategories = [
+        "Popular New Releases", "Top Sellers", "Popular Upcoming", 
+        "Specials", "Trending Free"
+    ];
+    const browseByCategory = [
+        "VISUAL NOVEL", "ANIME", "CO-OPERATIVE", "PUZZLE", "VR TITLES", 
+        "RACING", "FREE TO PLAY", "GREAT ON DECK", "CASUAL", "HORROR",
+        "SURVIVAL", "ROGUE-LIKE", "STORY-RICH", "ADVENTURE", "OPEN WORLD",
+        "ALL SPORTS", "CITY & SETTLEMENT", "SCI-FI & CYBERPUNK", "ACTION", "ROLE-PLAYING"
+    ];
 
     return(
         <>
             {/* <div className="pt-16 h-900"> */}
-            <div className="pt-16 h-900 bg-[rgb(15,25,36)] text-white">
+            <div className="pt-16 h-1200 bg-[rgb(15,25,36)] text-white">
                 {/* Search Bar */}
                 <section className="fixed z-10 top-0 left-0 flex gap-5 justify-between items-center px-2 py-3.5 w-full bg-[rgb(23,26,33)]">
                     {/* menu */}
@@ -92,7 +102,7 @@ function Home(){
                 <section className="flex gap-4 flex-col p-2">
                     <div className="flex gap-1 flex-col">
                         <div className="flex items-center gap-2">
-                            <div className="flex justify-center items-center px-2 py-1 font-medium text-sm bg-[rgb(26,159,255)] rounded-md">NEW</div>
+                            <div className="flex justify-center items-center px-2 py-0.5 font-medium text-sm bg-[rgb(26,159,255)] rounded-md">NEW</div>
                             <p className="font-semibold">Your Personal Calendar</p>
                         </div>
 
@@ -101,7 +111,7 @@ function Home(){
 
                     <div className="flex gap-1.5 pb-4 overflow-x-scroll">
                         {Array.from({length:8}).map((_, index) => {
-                            return <div key={index} className="flex gap-2 flex-col pt-1 px-1.5 pb-3 h-auto w-28 bg-gradient-to-b from-[rgb(30,81,131)] to-[rgb(25,42,63)] shrink-0">
+                            return <div key={index} className="flex gap-2 flex-col pt-1 px-2 pb-3 h-auto w-26 bg-gradient-to-b from-[rgb(30,81,131)] to-[rgb(25,42,63)] shrink-0">
                                 <div className="flex gap-2 justify-center items-center text-xs">
                                     <p>MON</p>
                                     <p className="font-semibold">7/25</p>
@@ -121,6 +131,115 @@ function Home(){
                     </div>
                 </section>
 
+                {/* Recommended Based on the Games You Play */}
+                <section className="flex gap-2 flex-col p-2">
+                    <h1 className=" font-bold">Recommended Based on the Games You Play</h1>
+
+                    <div className="flex gap-4 pb-5 overflow-x-scroll">
+                        {Array.from({length: 3}).map((_, index) => {
+                            return <div key={index} className="h-auto w-64 shrink-0">
+                                <div className="h-36 bg-gray-300">
+
+                                </div>
+                                
+                                <div className="flex justify-end h-8">
+                                    <div className="flex justify-center items-center px-1.5 text-xs bg-[rgb(11,19,27)] rounded">Free To Play</div>
+                                </div>
+                            </div>
+                        })}
+                    </div>
+
+                    <div className="flex justify-end">
+                        <button className="px-4.5 py-1 w-fit text-xs font-semibold bg-[rgb(204,204,204)] text-black rounded-sm">Customize, Explore by Tag, & More</button>
+                    </div>
+                </section>
+
+                {/* Explore Your Discovery Queue */}
+                <section className="px-2">
+                    <div className="flex flex-col justify-center px-3 aspect-16/7 bg-gradient-to-r from-[rgb(88,49,109)] to-[rgb(52,98,128)]">
+                        <p className="font-bold text-lg">Explore Your Discovery Queue</p>
+                        <p className="font-light text-sm">Click to open your queue of top-selling, new, and recommended titles</p>
+                    </div>
+                </section>
+
+                {/* Stealth Games */}
+                {Array.from({length:2}).map((_, index) => {
+                    return <section className="flex gap-2 flex-col p-2">
+                        <div>
+                            <h1 className="font-bold">STEALTH GAMES</h1>
+                            <p className="text-xs text-gray-300">Featured tag</p>
+                        </div>
+
+                        <div className="grid gap-5 grid-cols-2 p-2.5 h-56 bg-[rgb(26,44,63)]">
+                            {Array.from({length: 4}).map((_, index) => {
+                                return <div key={index} className="flex flex-col">
+                                    <div className="h-16 bg-gray-300"></div>
+
+                                    <div className="flex-1 flex justify-end">
+                                        <div className="flex justify-center items-center px-0.5 font-semibold text-sm bg-[rgb(161,205,68)] text-black">-95%</div>
+                                        <div className="flex justify-center items-center px-0.5 text-sm bg-[rgb(19,31,46)] text-[rgb(129,139,144)] line-through">$49.99</div>
+                                        <div className="flex justify-center items-center px-0.5 text-sm bg-[rgb(19,31,46)]">$2.49</div>
+                                    </div>
+                                </div>
+                            })}
+                        </div>
+
+                        <div className="flex justify-end">
+                            <button className="px-4.5 py-1 w-fit text-xs font-semibold bg-[rgb(204,204,204)] text-black rounded-sm">See More</button>
+                        </div>
+                    </section>
+                })}
+                
+                {/* Games Cats */}
+                <section className="flex gap-6 flex-col px-2">
+                    <div className="flex gap-2 pb-1 overflow-x-scroll">
+                        {gameCategories.map((cat, index) => {
+                            return <div key={index} className={`px-2 py-3 font-semibold text-sm bg-[rgb(21,31,41)] text-[rgb(183,185,188)] shrink-0 rounded ${index === 0 ? "border-b-3 border-[rgb(26,159,255)] bg-[rgb(21,76,101)] text-white" : ""}`}>
+                                {cat}
+                            </div>
+                        })}
+                    </div>
+
+                    <div className="flex gap-3 flex-col">
+                        {Array.from({length: 4}).map((_, index) => {
+                            return <div key={index} className="flex flex-col h-52">
+                                <div className="aspect-16/6 bg-gray-300"></div>
+
+                                <div className="flex-1 bg-[rgb(38,53,69)]"></div>
+                            </div>
+                        })}
+                    </div>
+
+                    <div className="flex gap-1 flex-col">
+                        <div className="flex gap-1 flex-col items-end">
+                            <p className="text-sm">See more:</p>
+                            <button className="px-4.5 py-1 w-fit text-xs font-semibold bg-[rgb(204,204,204)] text-black rounded-sm">Popular New Releases</button>
+                        </div>
+
+                        <div className="flex gap-1 flex-col items-end">
+                            <p className="text-sm">or</p>
+                            <button className="px-4.5 py-1 w-fit text-xs font-semibold bg-[rgb(204,204,204)] text-black rounded-sm">All New Releases</button>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Browse by Category */}
+                <section className="flex gap-2 flex-col px-2">
+                    <h1 className="font-bold">Browse by Category</h1>
+
+                    <div className="flex gap-2 pb-1 overflow-x-scroll">
+                        {browseByCategory.map((cat, index) => {
+                            return <div key={index} className="border flex justify-center items-center w-60 aspect-square bg-gray-300 rounded shrink-0">
+                                <div className="flex justify-center items-center bg-white text-black rounded">
+                                    {cat}
+                                </div>
+                            </div>
+                        })}
+                    </div>
+                </section>
+
+
+                
 
 
             </div>
