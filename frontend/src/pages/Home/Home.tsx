@@ -11,11 +11,37 @@ function Home(){
         "SURVIVAL", "ROGUE-LIKE", "STORY-RICH", "ADVENTURE", "OPEN WORLD",
         "ALL SPORTS", "CITY & SETTLEMENT", "SCI-FI & CYBERPUNK", "ACTION", "ROLE-PLAYING"
     ];
+    const footerData = [
+        {
+            title: "STEAM",
+            data: [
+                "About Steam", "Steam SSA", "Steamworks", "Steam Distribution", "Gift Cards",
+            ]
+        },
+        {
+            title: "VALVE",
+            data: [
+                "About Valve", "Jobs", "Hardware", "Recycling",
+            ]
+        },
+        {
+            title: "LEGAL",
+            data: [
+                "Privacy", "Accessibility", "Notices & Policies", "Cookies", "Refunds",
+            ]
+        },
+        {
+            title: "MORE", 
+            data: [
+                "Get Steam", "Get Mobile Apps", "Get Support", "My Account"
+            ]
+        },
+    ];
 
     return(
         <>
             {/* <div className="pt-16 h-900"> */}
-            <div className="pt-16 h-1200 bg-[rgb(15,25,36)] text-white">
+            <div className="pt-16 pb-32 bg-[rgb(15,25,36)] text-white">
                 {/* Search Bar */}
                 <section className="fixed z-10 top-0 left-0 flex gap-5 justify-between items-center px-2 py-3.5 w-full bg-[rgb(23,26,33)]">
                     {/* menu */}
@@ -76,9 +102,9 @@ function Home(){
 
                     <div className="flex gap-4 px-3 pt-3 pb-11 bg-[rgb(26,44,62)] overflow-x-scroll">
                         {Array.from({length: 3}).map((_, index) => {
-                            return <div key={index} className="border relative flex flex-col justify-end h-75 w-60 shrink-0">
-                                <div className="border absolute -top-2 left-0 p-1 font-semibold text-xs bg-gradient-to-r from-[rgb(97,14,93)] to-[rgb(183,37,90)]">MIDWEEK DEAL</div>
-                                <div className="border bg-blue-400 h-64"></div>
+                            return <div key={index} className="relative flex flex-col justify-end h-75 w-60 shrink-0">
+                                <div className="absolute -top-2 left-0 p-1 font-semibold text-xs bg-gradient-to-r from-[rgb(97,14,93)] to-[rgb(183,37,90)]">MIDWEEK DEAL</div>
+                                <div className="bg-blue-400 h-64"></div>
                                 <div className="flex justify-end">
                                     <div className="flex justify-center items-center px-1 h-9 font-semibold text-sm bg-[rgb(161,205,68)] text-black">Up to -80%</div>
                                 </div>
@@ -227,10 +253,10 @@ function Home(){
                 <section className="flex gap-2 flex-col px-2">
                     <h1 className="font-bold">Browse by Category</h1>
 
-                    <div className="flex gap-2 pb-1 overflow-x-scroll">
+                    <div className="flex gap-4 pb-1 overflow-x-scroll">
                         {browseByCategory.map((cat, index) => {
-                            return <div key={index} className="border flex justify-center items-center w-60 aspect-square bg-gray-300 rounded shrink-0">
-                                <div className="flex justify-center items-center bg-white text-black rounded">
+                            return <div key={index} className="border flex justify-center items-center h-40 w-48 bg-gray-300 rounded-xl shrink-0">
+                                <div className="flex justify-center items-center px-2.5 py-1 font-semibold bg-white text-black rounded-lg">
                                     {cat}
                                 </div>
                             </div>
@@ -238,9 +264,116 @@ function Home(){
                     </div>
                 </section>
 
+                {/* The Community Recommends */}
+                <section className="flex gap-2 flex-col p-2">
+                        <h1 className="font-bold">The Community Recommends</h1>
 
-                
+                        <div className="flex gap-2 pb-4 overflow-x-scroll">
+                            {Array.from({length: 2}).map((_, index) => {
+                                return <div key={index} className="border h-104 w-89 bg-[rgb(12,20,29)] shrink-0">
+                                    <div className="border h-48 bg-black">
+                                        <div className="border h-40 bg-gray-300">
 
+                                        </div>
+                                    </div>
+                                </div>
+                            })}
+                        </div>
+                        
+
+                        <div className="flex justify-end">
+                            <button className="px-4.5 py-1 w-fit text-xs font-semibold bg-[rgb(204,204,204)] text-black rounded-sm">Customize, Explore by Tags, & More</button>
+                        </div>
+                </section>
+
+                {/* Under $10 */}
+                <section className="flex gap-2 flex-col p-2">
+                        <h1 className="font-bold">Under $10</h1>
+
+                        <div className="flex gap-5 pb-4 overflow-x-scroll">
+                            {Array.from({length: 2}).map((_, index) => {
+                                return <div key={index} className="border h-45 w-60 bg-[rgb(12,20,29)] shrink-0">
+                                    <div className="border h-36">
+
+                                    </div>
+                                </div>
+                            })}
+                        </div>
+                        
+                        <div className="flex flex-col">
+                            <div className="flex justify-end">
+                                <p className="font-medium text-xs">See more:</p>
+                            </div>
+
+                            <div className="flex gap-1 justify-end">
+                                <div className="flex justify-end">
+                                    <button className="px-4.5 py-1 w-fit text-xs font-semibold bg-[rgb(204,204,204)] text-black rounded-sm">Under $10</button>
+                                </div>
+                                <div className="flex justify-end">
+                                    <button className="px-4.5 py-1 w-fit text-xs font-semibold bg-[rgb(204,204,204)] text-black rounded-sm">Under $5</button>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+
+                {/* Footer */}
+                <footer className="flex gap-10 flex-col">
+                    <div className="grid gap-x-8 gap-y-10 grid-cols-2 px-10">
+                        {footerData.map((data, index) => {
+                            return <div key={index} className="flex gap-3 flex-col">
+                                <p className="font-semibold text-sm">{data.title}</p>
+                                {data.data.map((subtext, index) => {
+                                    return <div key={index} className="text-sm text-[rgb(139,146,154)]">
+                                        {subtext}
+                                    </div>
+                                })}
+                            </div>
+                        })}
+                    </div>
+
+                    <div className="flex gap-8 items-center px-10">
+                        <div className="flex gap-1 justify-center items-center text-[rgb(139,146,154)]">
+                            <div className="flex justify-center items-center">
+                                <i className='bx bxl-steam text-5xl'></i>
+                            </div>
+
+                            <p className="font-semibold text-2xl">STEAM</p>
+                        </div>
+
+                        <div className="flex justify-center items-center bg-[rgb(139,146,154)]">
+                            <p className="px-3 py-0 font-semibold text-2xl text-black">VALVE</p>
+                        </div>
+                        
+                    </div>
+
+                    <p className="px-10 text-[10px] text-[rgb(171,177,183)]">
+                        © 2026 Valve Corporation. All rights reserved. 
+                        All trademarks are property of their respective owners in the US and other countries.
+                        VAT included in all prices where applicable.
+                    </p>
+
+                    <div className="flex gap-6 px-10 text-[rgb(139,146,154)] text-3xl">
+                        <i className='bx bxl-youtube' ></i>
+                        <i className='bx bxl-twitter' ></i>
+                        <i className='bx bxl-facebook-circle' ></i>
+                        <i className='bx bxl-tiktok'></i>
+                    </div>
+
+                    <button className="mx-10 px-4.5 py-2.5 w-fit text-sm bg-[rgb(26,159,255)] rounded-sm">Get Mobile Apps</button>
+
+                    <div className="px-2 text-xs text-gray-300">
+                        <p>
+                            We don't have any recommendations to show you here.
+                            This might be an error, or it might be that you don't have any playtime on record.
+                            You can hit refresh, or come back once you've played a game.
+                        </p>
+
+                        <p className="mt-4">
+                            Perhaps you'd like to check out a random game?
+                        </p>
+                    </div>
+
+                </footer>
 
             </div>
         </>
