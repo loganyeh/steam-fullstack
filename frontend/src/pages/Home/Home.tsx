@@ -1,4 +1,8 @@
-
+// import games data
+import { featuredGames, midweekDeals, personalCalendar,
+    yourRecommendations, gameCat1, gameCat2, under10,
+    popularNewReleases
+ } from "../../data/gamesData";
 
 function Home(){
     const gameCategories = [
@@ -81,15 +85,26 @@ function Home(){
                     <h1 className=" font-bold">Featured & Recommended</h1>
 
                     <div className="flex gap-4 pb-5 overflow-x-scroll">
-                        {Array.from({length: 2}).map((_, index) => {
+                        {featuredGames.map((game, index) => {
                             return <div key={index} className="flex flex-col w-80 aspect-10/9 shrink-0">
-                                <div className="aspect-16/9 bg-blue-400">
-                                {/* <div className="border h-48"> */}
-
+                                <div className="h-48 bg-blue-400">
+                                    <img src={game.img} alt="" className="h-full w-full object-cover"/>
                                 </div>
 
-                                <div className="flex-1 bg-[rgb(26,44,62)]">
+                                <div className="flex-1 flex gap-1 flex-col p-2 bg-[rgb(26,44,62)]">
+                                    <div className="">
+                                        <p className="font-bold text-lg tracking-wide">{game.title}</p>
+                                        <div className="flex gap-1 text-xs">
+                                            <p className="text-[rgb(101,191,243)]">{game.reviewRating}</p>
+                                            <p>({game.reviewCount} Reviews)</p>
+                                        </div>
+                                    </div>
 
+                                    <div className="flex-1 flex justify-end">
+                                        <div className="flex justify-center items-center px-0.5 h-8 font-semibold text-sm bg-[rgb(161,205,68)] text-black">-95%</div>
+                                        <div className="flex justify-center items-center px-0.5 h-8 text-sm bg-[rgb(19,31,46)] text-[rgb(129,139,144)] line-through">$49.99</div>
+                                        <div className="flex justify-center items-center px-0.5 h-8 text-sm bg-[rgb(19,31,46)]">$2.49</div>
+                                    </div>
                                 </div>
                             </div>
                         })}
@@ -101,12 +116,14 @@ function Home(){
                     <h1 className=" font-bold">Discounts & Events</h1>
 
                     <div className="flex gap-4 px-3 pt-3 pb-11 bg-[rgb(26,44,62)] overflow-x-scroll">
-                        {Array.from({length: 3}).map((_, index) => {
+                        {midweekDeals.map((game, index) => {
                             return <div key={index} className="relative flex flex-col justify-end h-75 w-60 shrink-0">
                                 <div className="absolute -top-2 left-0 p-1 font-semibold text-xs bg-gradient-to-r from-[rgb(97,14,93)] to-[rgb(183,37,90)]">MIDWEEK DEAL</div>
-                                <div className="bg-blue-400 h-64"></div>
+                                <div className="bg-blue-400 h-66">
+                                    <img src={game.img} alt={game.title} className="h-full w-full object-cover"/>
+                                </div>
                                 <div className="flex justify-end">
-                                    <div className="flex justify-center items-center px-1 h-9 font-semibold text-sm bg-[rgb(161,205,68)] text-black">Up to -80%</div>
+                                    <div className="flex justify-center items-center px-1 h-8 font-semibold text-sm bg-[rgb(161,205,68)] text-black">Up to -80%</div>
                                 </div>
                             </div>
                         })}
@@ -136,16 +153,18 @@ function Home(){
                     </div>
 
                     <div className="flex gap-1.5 pb-4 overflow-x-scroll">
-                        {Array.from({length:8}).map((_, index) => {
+                        {personalCalendar.map((date, index) => {
                             return <div key={index} className="flex gap-2 flex-col pt-1 px-2 pb-3 h-auto w-26 bg-gradient-to-b from-[rgb(30,81,131)] to-[rgb(25,42,63)] shrink-0">
                                 <div className="flex gap-2 justify-center items-center text-xs">
-                                    <p>MON</p>
-                                    <p className="font-semibold">7/25</p>
+                                    <p>{date.day}</p>
+                                    <p className="font-semibold">{date.date}</p>
                                 </div>
 
                                 <div className="flex flex-col gap-3">
-                                    {Array.from({length: 2}).map((_, index) => {
-                                        return <div key={index} className="h-26 bg-gray-300"></div>
+                                    {date.img.map((img, index) => {
+                                        return <div key={index} className="h-26 bg-gray-300">
+                                            <img src={img} alt="" className="h-full w-full object-cover"/>
+                                        </div>
                                     })}
                                 </div>
                             </div>
@@ -162,14 +181,14 @@ function Home(){
                     <h1 className=" font-bold">Recommended Based on the Games You Play</h1>
 
                     <div className="flex gap-4 pb-5 overflow-x-scroll">
-                        {Array.from({length: 3}).map((_, index) => {
+                        {yourRecommendations.map((game, index) => {
                             return <div key={index} className="h-auto w-64 shrink-0">
                                 <div className="h-36 bg-gray-300">
-
+                                    <img src={game.img} alt={game.title} className="h-full w-full object-cover" />
                                 </div>
                                 
                                 <div className="flex justify-end h-8">
-                                    <div className="flex justify-center items-center px-1.5 text-xs bg-[rgb(11,19,27)] rounded">Free To Play</div>
+                                    <div className="flex justify-center items-center px-1.5 text-xs bg-[rgb(11,19,27)] rounded">{game.price}</div>
                                 </div>
                             </div>
                         })}
@@ -184,37 +203,37 @@ function Home(){
                 <section className="px-2">
                     <div className="flex flex-col justify-center px-3 aspect-16/7 bg-gradient-to-r from-[rgb(88,49,109)] to-[rgb(52,98,128)]">
                         <p className="font-bold text-lg">Explore Your Discovery Queue</p>
-                        <p className="font-light text-sm">Click to open your queue of top-selling, new, and recommended titles</p>
+                        <p className="font-light text-xs">Click to open your queue of top-selling, new, and recommended titles</p>
                     </div>
                 </section>
 
-                {/* Stealth Games */}
-                {Array.from({length:2}).map((_, index) => {
-                    return <section className="flex gap-2 flex-col p-2">
-                        <div>
-                            <h1 className="font-bold">STEALTH GAMES</h1>
-                            <p className="text-xs text-gray-300">Featured tag</p>
-                        </div>
+                {/* Sports Games */}
+                <section className="flex gap-2 flex-col p-2">
+                    <div>
+                        <h1 className="font-bold">SPORTS GAMES</h1>
+                        <p className="text-xs text-gray-300">Featured tag</p>
+                    </div>
 
-                        <div className="grid gap-5 grid-cols-2 p-2.5 h-56 bg-[rgb(26,44,63)]">
-                            {Array.from({length: 4}).map((_, index) => {
-                                return <div key={index} className="flex flex-col">
-                                    <div className="h-16 bg-gray-300"></div>
-
-                                    <div className="flex-1 flex justify-end">
-                                        <div className="flex justify-center items-center px-0.5 font-semibold text-sm bg-[rgb(161,205,68)] text-black">-95%</div>
-                                        <div className="flex justify-center items-center px-0.5 text-sm bg-[rgb(19,31,46)] text-[rgb(129,139,144)] line-through">$49.99</div>
-                                        <div className="flex justify-center items-center px-0.5 text-sm bg-[rgb(19,31,46)]">$2.49</div>
-                                    </div>
+                    <div className="grid gap-5 grid-cols-2 p-2.5 h-56 bg-[rgb(26,44,63)]">
+                        {gameCat1.map((game, index) => {
+                            return <div key={index} className="flex flex-col">
+                                <div className="h-16 bg-gray-300">
+                                    <img src={game.img} alt={game.title} className="h-full w-full object-cover"/>
                                 </div>
-                            })}
-                        </div>
 
-                        <div className="flex justify-end">
-                            <button className="px-4.5 py-1 w-fit text-xs font-semibold bg-[rgb(204,204,204)] text-black rounded-sm">See More</button>
-                        </div>
-                    </section>
-                })}
+                                <div className="flex-1 flex justify-end">
+                                    <div className="flex justify-center items-center px-0.5 font-semibold text-sm bg-[rgb(161,205,68)] text-black">-95%</div>
+                                    <div className="flex justify-center items-center px-0.5 text-sm bg-[rgb(19,31,46)] text-[rgb(129,139,144)] line-through">$49.99</div>
+                                    <div className="flex justify-center items-center px-0.5 text-sm bg-[rgb(19,31,46)]">$2.49</div>
+                                </div>
+                            </div>
+                        })}
+                    </div>
+
+                    <div className="flex justify-end">
+                        <button className="px-4.5 py-1 w-fit text-xs font-semibold bg-[rgb(204,204,204)] text-black rounded-sm">See More</button>
+                    </div>
+                </section>
                 
                 {/* Games Cats */}
                 <section className="flex gap-6 flex-col px-2">
@@ -227,11 +246,29 @@ function Home(){
                     </div>
 
                     <div className="flex gap-3 flex-col">
-                        {Array.from({length: 4}).map((_, index) => {
-                            return <div key={index} className="flex flex-col h-52">
-                                <div className="aspect-16/6 bg-gray-300"></div>
+                        {popularNewReleases.map((game, index) => {
+                            return <div key={index} className="flex flex-col h-53">
+                                <div className="h-34 bg-gray-300">
+                                    <img src={game.img} alt={game.title} className="h-full w-full object-cover"/>
+                                </div>
 
-                                <div className="flex-1 bg-[rgb(38,53,69)]"></div>
+                                <div className="border flex-1 flex px-1.5 pb-1.5 pt-2 bg-[rgb(38,53,69)]">
+                                    <div className="flex-1">
+                                        <p className="text-sm">{game.title}</p>
+                                        <div className="flex gap-1 text-xs">
+                                            {game.genres.map((genre, index) => {
+                                                return <p key={index}>{genre}</p>
+                                            })}
+
+                                        </div>
+                                        <p className="text-xs">Released: Aug 10, 2026</p>
+                                    </div>
+
+                                    <div className="border flex-1 flex justify-end items-end">
+                                        <div className="flex justify-center items-center px-0.5 h-8 font-semibold text-sm bg-[rgb(161,205,68)] text-black">-95%</div>
+                                        <div className="flex justify-center items-center px-0.5 h-8 text-sm bg-[rgb(19,31,46)]">$2.49</div>
+                                    </div>
+                                </div>
                             </div>
                         })}
                     </div>
@@ -290,11 +327,15 @@ function Home(){
                 <section className="flex gap-2 flex-col p-2">
                         <h1 className="font-bold">Under $10</h1>
 
-                        <div className="flex gap-5 pb-4 overflow-x-scroll">
-                            {Array.from({length: 2}).map((_, index) => {
-                                return <div key={index} className="border h-45 w-60 bg-[rgb(12,20,29)] shrink-0">
-                                    <div className="border h-36">
+                        <div className="flex gap-3.5 pb-4 overflow-x-scroll">
+                            {under10.map((game, index) => {
+                                return <div key={index} className="h-45 w-60 shrink-0">
+                                    <div className="h-36">
+                                        <img src={game.img} alt={game.title} className="h-full w-full object-cover"/>
+                                    </div>
 
+                                    <div className="flex justify-end">
+                                        <p className="flex justify-center items-center p-2 text-xs bg-[rgb(12,20,29)]">$9.99</p>
                                     </div>
                                 </div>
                             })}
