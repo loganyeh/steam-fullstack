@@ -170,3 +170,14 @@ export const under10 = [
         img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1313140/19f32bb477a6e9d058e05193b4e282149bd70644/header.jpg?t=1769836674",
     },
 ];
+
+export const communityRecommends = [
+    {
+        title: "Big Walk",
+        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1478500/62eeee1507dbac905e128a62f2ce690550238db0/header.jpg?t=1785911674"
+    },
+    {
+        title: "Leafy Corner",
+        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3558600/57deed9f6c4c6a94fba79c492dda70bf2311c435/header.jpg?t=1786177161"
+    },
+];

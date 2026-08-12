@@ -1,10 +1,14 @@
+
+import { useState } from "react";
+
 // import games data
 import { featuredGames, midweekDeals, personalCalendar,
     yourRecommendations, gameCat1, gameCat2, under10,
-    popularNewReleases
+    popularNewReleases, communityRecommends
  } from "../../data/gamesData";
 
 function Home(){
+    const [isCart, setIsCart] = useState(false);
     const gameCategories = [
         "Popular New Releases", "Top Sellers", "Popular Upcoming", 
         "Specials", "Trending Free"
@@ -63,8 +67,9 @@ function Home(){
                     </div>
                 </section>
 
-                {/* menu & wishlist */}
+                {/* menu & wishlist & cart */}
                 <section className="flex justify-between px-3 py-2 bg-gradient-to-r from-[rgb(21,32,47)] to-[rgb(21,24,30)] text-white">
+                    {/* menu */}
                     <div className="flex gap-1 items-center">
                         <p className="font-semibold text-sm">Menu</p>
                         <div className="flex justify-center items-center">
@@ -72,11 +77,21 @@ function Home(){
                         </div>
                     </div>
 
-                    <div className="flex gap-1 items-center">
-                        <div>
-                            <i className='bx bxs-star' ></i>
+                    <div className="flex gap-5">
+                        {/* wishlist */}
+                        <div className="flex gap-1 items-center">
+                            <div>
+                                <i className='bx bxs-star' ></i>
+                            </div>
+                            <p className="text-xs">Wishlist</p>
                         </div>
-                        <p className="text-xs">Wishlist</p>
+
+                        {/* cart */}
+                        {isCart && <div className="flex gap-1 justify-center items-center px-2 py-1.5 bg-[rgb(25,159,255)]">
+                            <i className='bx bxs-cart' ></i>
+                            <p className="text-xs">Cart</p>
+                            <p className="text-[10px]">1</p>
+                        </div>}
                     </div>
                 </section> 
 
@@ -252,21 +267,21 @@ function Home(){
                                     <img src={game.img} alt={game.title} className="h-full w-full object-cover"/>
                                 </div>
 
-                                <div className="border flex-1 flex px-1.5 pb-1.5 pt-2 bg-[rgb(38,53,69)]">
-                                    <div className="flex-1">
+                                <div className="flex-1 flex px-1.5 pb-1.5 pt-2 bg-[rgb(38,53,69)]">
+                                    <div className="flex-1 flex gap-1 flex-col">
                                         <p className="text-sm">{game.title}</p>
                                         <div className="flex gap-1 text-xs">
                                             {game.genres.map((genre, index) => {
-                                                return <p key={index}>{genre}</p>
+                                                return <p key={index} className="text-[rgb(212,215,218)]">{genre}</p>
                                             })}
 
                                         </div>
-                                        <p className="text-xs">Released: Aug 10, 2026</p>
+                                        <p className="text-xs text-[rgb(147,154,162)]">Released: Aug 10, 2026</p>
                                     </div>
 
-                                    <div className="border flex-1 flex justify-end items-end">
-                                        <div className="flex justify-center items-center px-0.5 h-8 font-semibold text-sm bg-[rgb(161,205,68)] text-black">-95%</div>
-                                        <div className="flex justify-center items-center px-0.5 h-8 text-sm bg-[rgb(19,31,46)]">$2.49</div>
+                                    <div className="flex justify-end items-end text-xs">
+                                        <div className="flex justify-center items-center px-0.5 h-8 font-semibold bg-[rgb(161,205,68)] text-black">-95%</div>
+                                        <div className="flex justify-center items-center px-1 h-8 bg-[rgb(19,31,46)]">$2.49</div>
                                     </div>
                                 </div>
                             </div>
@@ -306,12 +321,40 @@ function Home(){
                         <h1 className="font-bold">The Community Recommends</h1>
 
                         <div className="flex gap-2 pb-4 overflow-x-scroll">
-                            {Array.from({length: 2}).map((_, index) => {
-                                return <div key={index} className="border h-104 w-89 bg-[rgb(12,20,29)] shrink-0">
-                                    <div className="border h-48 bg-black">
-                                        <div className="border h-40 bg-gray-300">
-
+                            {communityRecommends.map((game, index) => {
+                                return <div key={index} className="flex flex-col h-104 w-89 bg-[rgb(12,20,29)] shrink-0">
+                                    <div className="h-48 bg-black">
+                                        <div className="h-42 bg-gray-300">
+                                            <img src={game.img} alt={game.title} className="h-full w-full object-cover" />
                                         </div>
+                                    </div>
+
+                                    <div className="flex-1 flex gap-2 flex-col px-5 py-3">
+                                        <p className="font-semibold text-lg">{game.title}</p>
+
+                                        <p className="text-sm line-clamp-3">
+                                            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum aut nihil ad nisi itaque, 
+                                            deleniti reiciendis amet aliquid maxime officia aperiam dolorem esse nobis fugiat ut 
+                                            asperiores temporibus, eius labore."
+                                        </p>
+
+                                        <div className="flex gap-2">
+                                            <div className="w-10 h-10 bg-blue-400"></div>
+
+                                            <div className="text-[10px]">
+                                                <p className="font-semibold text-xs">anon</p>
+                                                <p>played 4.7 hrs at reviwe time</p>
+                                                <p>9 people found this helpful</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex-1 flex justify-end items-center">
+                                            <div className="flex justify-center items-center px-0.5 h-6 font-semibold text-sm bg-[rgb(161,205,68)] text-black">-95%</div>
+                                            <div className="flex justify-center items-center px-0.5 h-6 text-sm bg-[rgb(19,31,46)] text-[rgb(129,139,144)] line-through">$49.99</div>
+                                            <div className="flex justify-center items-center px-1 h-6 text-sm bg-[rgb(19,31,46)]">$2.49</div>
+                                        </div>
+
+                                        
                                     </div>
                                 </div>
                             })}
@@ -358,7 +401,7 @@ function Home(){
                 </section>
 
                 {/* Footer */}
-                <footer className="flex gap-10 flex-col">
+                <footer className="flex gap-10 flex-col mt-12">
                     <div className="grid gap-x-8 gap-y-10 grid-cols-2 px-10">
                         {footerData.map((data, index) => {
                             return <div key={index} className="flex gap-3 flex-col">
@@ -382,7 +425,7 @@ function Home(){
                         </div>
 
                         <div className="flex justify-center items-center bg-[rgb(139,146,154)]">
-                            <p className="px-3 py-0 font-semibold text-2xl text-black">VALVE</p>
+                            <p className="px-3 py-0 font-semibold text-2xl text-[rgb(15,25,36)]">VALVE</p>
                         </div>
                         
                     </div>
