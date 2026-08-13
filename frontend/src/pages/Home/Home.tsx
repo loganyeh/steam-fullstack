@@ -6,6 +6,7 @@ import { featuredGames, midweekDeals, personalCalendar,
     yourRecommendations, gameCat1, gameCat2, under10,
     popularNewReleases, communityRecommends
  } from "../../data/gamesData";
+import Featured from "./Featured";
 
 function Home(){
     const [isCart, setIsCart] = useState(false);
@@ -50,22 +51,31 @@ function Home(){
         <>
             {/* <div className="pt-16 h-900"> */}
             <div className="pt-16 pb-32 bg-[rgb(15,25,36)] text-white">
-                {/* Search Bar */}
-                <section className="fixed z-10 top-0 left-0 flex gap-5 justify-between items-center px-2 py-3.5 w-full bg-[rgb(23,26,33)]">
+                {/* Header */}
+                <header className="fixed z-10 top-0 left-0 flex gap-5 justify-between items-center px-2 py-3.5 w-full bg-[rgb(23,26,33)]">
                     {/* menu */}
                     <div className="flex justify-center items-center">
                         <i className='bx bx-menu text-4xl text-white' ></i>
                     </div>
 
+                    {/* LOGO */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex gap-1 justify-center items-center text-white">
+                        <div className="flex justify-center items-center">
+                            <i className='bx bxl-steam text-5xl'></i>
+                        </div>
+
+                        <p className="font-medium text-xl tracking-wider">STEAM</p>
+                    </div>
+
                     {/* search bar */}
-                    <div className="flex justify-between h-9 w-full max-w-xs">
+                    <div className="md:hidden flex justify-between h-9 w-full max-w-xs">
                         <input type="search" placeholder="Search the store" className="border border-[rgb(81,83,88)] pl-3 w-full bg-[rgb(52,55,61)] placeholder:font-light placeholder:text-xs placeholder:italic placeholder:text-white" />
 
                         <div className="flex justify-center items-center aspect-square bg-[rgb(26,159,255)]">
                             <i className='bx bx-search text-xl text-white' ></i>
                         </div>
                     </div>
-                </section>
+                </header>
 
                 {/* menu & wishlist & cart */}
                 <section className="flex justify-between px-3 py-2 bg-gradient-to-r from-[rgb(21,32,47)] to-[rgb(21,24,30)] text-white">
@@ -74,6 +84,15 @@ function Home(){
                         <p className="font-semibold text-sm">Menu</p>
                         <div className="flex justify-center items-center">
                             <i className='bx bx-chevron-down' ></i>
+                        </div>
+                    </div>
+
+                    {/* search bar */}
+                    <div className="hidden md:flex justify-between h-9 w-full max-w-md">
+                        <input type="search" placeholder="Search the store" className="border border-[rgb(81,83,88)] pl-3 w-full bg-[rgb(52,55,61)] placeholder:font-light placeholder:text-xs placeholder:italic placeholder:text-white" />
+
+                        <div className="flex justify-center items-center aspect-square bg-[rgb(26,159,255)]">
+                            <i className='bx bx-search text-xl text-white' ></i>
                         </div>
                     </div>
 
@@ -95,36 +114,7 @@ function Home(){
                     </div>
                 </section> 
 
-                {/* Featured & Recommended */}
-                <section className="flex gap-2 flex-col p-2">
-                    <h1 className=" font-bold">Featured & Recommended</h1>
-
-                    <div className="flex gap-4 pb-5 overflow-x-scroll">
-                        {featuredGames.map((game, index) => {
-                            return <div key={index} className="flex flex-col w-80 aspect-10/9 shrink-0">
-                                <div className="h-48 bg-blue-400">
-                                    <img src={game.img} alt="" className="h-full w-full object-cover"/>
-                                </div>
-
-                                <div className="flex-1 flex gap-1 flex-col p-2 bg-[rgb(26,44,62)]">
-                                    <div className="">
-                                        <p className="font-bold text-lg tracking-wide">{game.title}</p>
-                                        <div className="flex gap-1 text-xs">
-                                            <p className="text-[rgb(101,191,243)]">{game.reviewRating}</p>
-                                            <p>({game.reviewCount} Reviews)</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex-1 flex justify-end">
-                                        <div className="flex justify-center items-center px-0.5 h-8 font-semibold text-sm bg-[rgb(161,205,68)] text-black">-95%</div>
-                                        <div className="flex justify-center items-center px-0.5 h-8 text-sm bg-[rgb(19,31,46)] text-[rgb(129,139,144)] line-through">$49.99</div>
-                                        <div className="flex justify-center items-center px-0.5 h-8 text-sm bg-[rgb(19,31,46)]">$2.49</div>
-                                    </div>
-                                </div>
-                            </div>
-                        })}
-                    </div>
-                </section>
+                <Featured />
 
                 {/* Discounts & Events */}
                 <section className="flex gap-2 flex-col p-2">
