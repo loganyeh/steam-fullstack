@@ -3,7 +3,7 @@ import { useState } from "react";
 
 // import games data
 import { featuredGames, midweekDeals, personalCalendar,
-    yourRecommendations, gameCat1, gameCat2, under10,
+    personalRecommendations, gameCat1, gameCat2, under10,
     popularNewReleases, communityRecommends
  } from "../../data/gamesData";
 import Featured from "./Featured";
@@ -186,7 +186,7 @@ function Home(){
                     <h1 className=" font-bold">Recommended Based on the Games You Play</h1>
 
                     <div className="flex gap-4 pb-5 overflow-x-scroll">
-                        {yourRecommendations.map((game, index) => {
+                        {personalRecommendations.map((game, index) => {
                             return <div key={index} className="h-auto w-64 shrink-0">
                                 <div className="h-36 bg-gray-300">
                                     <img src={game.img} alt={game.title} className="h-full w-full object-cover" />

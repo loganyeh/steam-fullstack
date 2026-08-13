@@ -81,7 +81,7 @@ export const personalCalendar = [
     },
 ];
 
-export const yourRecommendations = [
+export const personalRecommendations = [
     {
         title: "eFootball™", 
         img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1665460/9182eac331f562e4a3aab2384b6759c3e1a95797/header.jpg?t=1782314037",
@@ -180,4 +180,13 @@ export const communityRecommends = [
         title: "Leafy Corner",
         img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3558600/57deed9f6c4c6a94fba79c492dda70bf2311c435/header.jpg?t=1786177161"
     },
+];
+
+export const genreTabs = [
+    "Popular New Releases", "Top Sellers", "Popular Upcoming", "Specials",
+    "Trending Free"
+];
+
+export const browseByCategory = [
+    "ACTION", "HORROR", "SURVIVAL", "ROLE-PLAYING"
 ];
