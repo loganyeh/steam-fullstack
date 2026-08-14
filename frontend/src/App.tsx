@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 
 // import comps
-import Store from "./pages/Store/store"
+import Store from "./pages/Store/Store"
 
 function App() {
 

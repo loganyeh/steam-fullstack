@@ -1,35 +1,6 @@
-
-
 var temp = "™"
 
-export const footerData = [
-    {
-        title: "STEAM",
-        links: [
-            "About Steam", "Steam SSA", "Steamworks", "Steam Distribution", "Gift Cards"
-        ]
-    },
-    {
-        title: "VALVE",
-        links: [
-            "About Valve", "Jobs", "Hardware", "Recycling"
-        ]
-    },
-    {
-        title: "LEGAL",
-        links: [
-            "Privacy", "Accessibility", "Notices & Policies", "Cookies", "Refunds"
-        ]
-    },
-    {
-        title: "MORE",
-        links: [
-            "Get Steam", "Get Mobile Apps", "Get Support", "My Account"
-        ]
-    },
-]
-
-export const featuredGames = [
+export const featuredAndRecommended = [
     {
         title: "HELLDIVERS 2™",
         img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553850/850e2f9e5bb15c5706bb9a1edc832f4f782e8be5/header.jpg?t=1786525389",
@@ -62,7 +33,7 @@ export const featuredGames = [
     },
 ];
 
-export const midweekDeals = [
+export const discountsAndEvents = [
     {
         title: "World War Z",
         img: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/699130/b35277055fbb7e07c26c5e31e4398684c6461d53/header.jpg?t=1786453804",
@@ -73,7 +44,7 @@ export const midweekDeals = [
     },
 ];
 
-export const personalCalendar = [
+export const yourPersonalCalendar = [
     {
         day: "MON",
         date: "7/25",
@@ -159,6 +130,11 @@ export const gameCat2 = [
     },
 ];
 
+export const trendingGamesTabs = [
+    "Popular New Releases", "Top Sellers", "Popular Upcoming", "Specials",
+    "Trending Free"
+];
+
 export const popularNewReleases = [
     {
         title: "Agent 64: Spies Never Die",
@@ -183,37 +159,6 @@ export const popularNewReleases = [
     },
 ];
 
-export const under10 = [
-    {
-        title: "Overwatch® Starter Pack 2026: Season 4",
-        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4815780/48bf83be9d0a31f1f2a84dd9bf73ff6ba6b7d99e/header.jpg?t=1786471242",
-    },
-    {
-        title: "Security 51",
-        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4246860/784e58137f2ae6511c7ba175946c3d898b5da42b/header.jpg?t=1786536676",
-    },
-    {
-        title: "Cult of the Lamb",
-        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1313140/19f32bb477a6e9d058e05193b4e282149bd70644/header.jpg?t=1769836674",
-    },
-];
-
-export const communityRecommends = [
-    {
-        title: "Big Walk",
-        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1478500/62eeee1507dbac905e128a62f2ce690550238db0/header.jpg?t=1785911674"
-    },
-    {
-        title: "Leafy Corner",
-        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3558600/57deed9f6c4c6a94fba79c492dda70bf2311c435/header.jpg?t=1786177161"
-    },
-];
-
-export const genreTabs = [
-    "Popular New Releases", "Top Sellers", "Popular Upcoming", "Specials",
-    "Trending Free"
-];
-
 export const browseByCategory = [
     {
         category: "ACTION",
@@ -230,6 +175,61 @@ export const browseByCategory = [
     {
         category: "ROLE-PLAYING",
         img: "bg-green-300"
+    },
+];
+
+export const communityRecommends = [
+    {
+        title: "Big Walk",
+        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1478500/62eeee1507dbac905e128a62f2ce690550238db0/header.jpg?t=1785911674"
+    },
+    {
+        title: "Leafy Corner",
+        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3558600/57deed9f6c4c6a94fba79c492dda70bf2311c435/header.jpg?t=1786177161"
+    },
+];
+
+export const under10 = [
+    {
+        title: "Overwatch® Starter Pack 2026: Season 4",
+        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4815780/48bf83be9d0a31f1f2a84dd9bf73ff6ba6b7d99e/header.jpg?t=1786471242",
+    },
+    {
+        title: "Security 51",
+        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4246860/784e58137f2ae6511c7ba175946c3d898b5da42b/header.jpg?t=1786536676",
+    },
+    {
+        title: "Cult of the Lamb",
+        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1313140/19f32bb477a6e9d058e05193b4e282149bd70644/header.jpg?t=1769836674",
+    },
+];
+
+
+
+export const footerData = [
+    {
+        title: "STEAM",
+        links: [
+            "About Steam", "Steam SSA", "Steamworks", "Steam Distribution", "Gift Cards"
+        ]
+    },
+    {
+        title: "VALVE",
+        links: [
+            "About Valve", "Jobs", "Hardware", "Recycling"
+        ]
+    },
+    {
+        title: "LEGAL",
+        links: [
+            "Privacy", "Accessibility", "Notices & Policies", "Cookies", "Refunds"
+        ]
+    },
+    {
+        title: "MORE",
+        links: [
+            "Get Steam", "Get Mobile Apps", "Get Support", "My Account"
+        ]
     },
 ];
 
