@@ -2,6 +2,33 @@
 
 var temp = "™"
 
+export const footerData = [
+    {
+        title: "STEAM",
+        links: [
+            "About Steam", "Steam SSA", "Steamworks", "Steam Distribution", "Gift Cards"
+        ]
+    },
+    {
+        title: "VALVE",
+        links: [
+            "About Valve", "Jobs", "Hardware", "Recycling"
+        ]
+    },
+    {
+        title: "LEGAL",
+        links: [
+            "Privacy", "Accessibility", "Notices & Policies", "Cookies", "Refunds"
+        ]
+    },
+    {
+        title: "MORE",
+        links: [
+            "Get Steam", "Get Mobile Apps", "Get Support", "My Account"
+        ]
+    },
+]
+
 export const featuredGames = [
     {
         title: "HELLDIVERS 2™",
@@ -188,5 +215,24 @@ export const genreTabs = [
 ];
 
 export const browseByCategory = [
-    "ACTION", "HORROR", "SURVIVAL", "ROLE-PLAYING"
+    {
+        category: "ACTION",
+        img: "bg-red-300"
+    },
+    {
+        category: "HORROR",
+        img: "bg-blue-300"
+    },
+    {
+        category: "SURVIVAL",
+        img: "bg-yellow-300"
+    },
+    {
+        category: "ROLE-PLAYING",
+        img: "bg-green-300"
+    },
+];
+
+export const socialMediaIcons = [
+    'bx bxl-youtube', 'bx bxl-twitter', 'bx bxl-facebook-circle', 'bx bxl-twitch'
 ];

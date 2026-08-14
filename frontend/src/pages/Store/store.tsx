@@ -1,13 +1,16 @@
 // import game data
 import { featuredGames, midweekDeals, personalCalendar, personalRecommendations,
-    gameCat1, genreTabs, popularNewReleases, browseByCategory
+    gameCat1, genreTabs, popularNewReleases, browseByCategory, socialMediaIcons
  } from "../../data/gamesData";
+
+//  import data
+import { footerData } from "../../data/gamesData";
 
 function Store(){
 
     return(
         <> 
-            <div className="h-1200">
+            <div className="border pb-32">
 
                 {/* Search & Menu */}
                 <section className="border flex justify-between items-center px-2 py-2.5">
@@ -48,6 +51,7 @@ function Store(){
                     <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553850/850e2f9e5bb15c5706bb9a1edc832f4f782e8be5/header.jpg?t=1786525389" alt="Helldivers 2" className="h-full w-full object-cover" />
                 </section>
 
+                {/* body */}
                 <div className="flex gap-7 flex-col">
                     {/* Featured & Recommended */}
                     {/* either do my-2 or pt-2 */}
@@ -126,7 +130,13 @@ function Store(){
                     </section>
 
                     {/* Send a Gift Card */}
-                    <section className="border flex justify-center items-center mx-2 py-2 font-semibold text-white bg-blue-400 rounded">Send a Gift Card</section>
+                    <section className="relative flex justify-end mx-2">
+                        <div className="pl-14 py-2 max-w-xs w-full font-semibold bg-blue-400 rounded">
+                            Send a Gift Card
+                        </div>
+
+                        <img src="https://cdn.akamai.steamstatic.com/store/home/gc_fan.webp" alt="" className="absolute left-0 top-1/2 -translate-y-1/2 h-[115%]" />
+                    </section>
 
                     {/* Your Personal Calendar */}
                     <section className="border flex gap-2 flex-col px-2">
@@ -275,22 +285,159 @@ function Store(){
                     </div>
 
                     {/* Browse by Category */}
-                    <section className="border flex gap-2 flex-col px-2">
-                        <div className="">
-                            <p className="font-bold">Recommended Based on the Games You Play</p>
+                    <section className="border flex gap-4 flex-col px-2">
+                            <p className="font-bold">Browse by Category</p>
 
-                            <div className="flex gap-3 overflow-x-auto">
+                            <div className="flex gap-3.5 pb-4 overflow-x-auto">
                                 {browseByCategory.map((cat, index) => {
-                                    return <div key={index} className="border flex justify-center items-center px-12 pt-20 pb-12 shrink-0">
-                                        <p className="px-3.5 py-1 font-semibold tracking-wide bg-gray-300 rounded">{cat}</p>
+                                    return <div key={index} className={`flex justify-center items-center px-4 min-w-44 max-w-52 aspect-8/7 ${cat.img} shrink-0 rounded-xl`}>
+                                    {/* return <div key={index} className={`border flex justify-center items-center px-12 pt-20 pb-12 ${cat.img} shrink-0`}> */}
+                                        <p className="px-3.5 py-1 font-semibold tracking-wide bg-gray-300 rounded">{cat.category}</p>
                                     </div>
                                 })}
                             </div>
-                            
+                    </section>
+
+                    {/* The Community Recommends */}
+                    <section className="border flex gap-3 flex-col px-2">
+                        <p className="font-bold">The Community Recommends</p>
+
+                        <div className="flex gap-3 pb-4 overflow-x-auto">
+                            {Array.from({length: 2}).map((_, index) => {
+                                return <div key={index} className="">
+                                    <div className="w-88 aspect-16/7.5 bg-blue-300"></div>
+
+                                    <div className="px-5 pt-3 pb-6 bg-gray-300">
+                                        <div className="flex gap-2.5 flex-col">
+                                            <p className="font-bold text-lg">Servant of the Lake</p>
+                                            <p className="font-medium text-xs line-clamp-4">
+                                                "Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                                Itaque rem veniam debitis maxime! Aliquid, quibusdam amet vel suscipit qui, 
+                                                consectetur laudantium obcaecati voluptatum quas illum cum, earum iste officiis 
+                                                saepe!"
+                                            </p>
+
+                                            <div className="border flex gap-2 items-start">
+                                                <div className="w-10 aspect-square bg-gray-700"></div>
+
+                                                <div>
+                                                    <p className="font-bold text-xs">Hanni</p>
+                                                    <p className="text-[11px]">Played 8.1 hrs at review time</p>
+                                                    <p className="text-[11px]">14 people found this review helpful</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex justify-end font-bold text-xs">
+                                            <div className="border p-1.5 py-1">-75%</div>
+                                            <div className="border p-1.5 py-1 line-through">$29.99</div>
+                                            <div className="border p-1.5 py-1">$7.49</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            })}
+                        </div>
+
+                        <div className="flex justify-end">
+                            <button className="px-4.5 py-1 font-semibold text-xs bg-gray-300 rounded-sm">Customize, Explore by Tag, & More</button>
                         </div>
                     </section>
 
+                    {/* Under $10 */}
+                    <section className="border flex gap-3 flex-col px-2">
+                            <p className="font-bold">Under $10</p>
 
+                            <div className="border flex gap-3.5 pb-3 overflow-x-auto">
+                                {Array.from({length: 2}).map((_, index) => {
+                                    return <div key={index} className="w-62 shrink-0">
+                                        <div className="aspect-16/9.5 bg-gray-300"></div>
+
+                                        <div className="flex justify-end font-bold text-xs">
+                                            <div className="border px-1.5 py-1.5">-75%</div>
+                                            <div className="border px-0.5 py-1.5 line-through">$29.99</div>
+                                            <div className="border px-0.5 py-1.5">$7.49</div>
+                                        </div>
+                                    </div>
+                                })}
+                            </div>
+
+                            <div className="border flex flex-col items-end">
+                                <p className="font-semibold text-xs">See more:</p>
+
+                                <div className="flex gap-1.5">
+                                    {Array.from({length: 2}).map((_, index) => {
+                                        return <div key={index} className="flex justify-end">
+                                            <button className="px-4.5 py-1 font-semibold text-xs bg-gray-300 rounded-sm">Under $10</button>
+                                        </div>
+                                    })}
+                                </div>
+                            </div>
+                    </section>
+                </div>
+
+
+                {/* Footer */}
+                <footer className="border py-10 px-8">
+                    {/* links */}
+                    <div className="border grid gap-10 grid-cols-2">
+                        {footerData.map((footer, index) => {
+                            return <div key={index} className="flex gap-3 flex-col">
+                                <p className="font-bold text-sm">{footer.title}</p>
+
+                                {footer.links.map((link, index) => {
+                                    return <div key={index} className="font-medium text-sm">
+                                        {link}
+                                    </div>
+                                })}
+                            </div>
+                        })}
+                    </div>
+
+                    {/* STEAM LOGO */}
+                    <div className="border flex gap-8 items-center">
+                        <div className="flex gap-2.5 items-center">
+                            <i className='bx bxl-steam text-4xl'></i>
+                            <p className="font-bold text-2xl">STEAM</p>
+                        </div>
+
+                        <div className="flex justify-center items-center bg-gray-300">
+                            <p className="px-2 font-medium text-xl tracking-widest">VALVE</p>
+                        </div>
+                    </div>
+
+                    {/* Copyright */}
+                    <p className="text-xs">
+                        © 2026 Valve Corporation. All rights reserved. 
+                        All trademarks are property of their respective 
+                        owners in the US and other countries.
+                        VAT included in all prices where applicable.
+                    </p>
+
+                    {/* Social Media */}
+                    <div className="border flex gap-5">
+                        {socialMediaIcons.map((icon, index) => {
+                            return <div key={index} className="flex justify-center items-center">
+                                <i className={`${icon} text-4xl`} ></i>
+                            </div>
+                        })}
+                    </div> 
+
+                    {/* Button */}
+                    <button className="border px-4 py-2 font-medium text-sm bg-blue-400 text-white rounded-sm">Get Mobile Apps</button>
+                </footer>
+
+                {/* Note */}
+                <div className="flex gap-5 flex-col text-xs">
+                    <p>
+                        We don't have any recommendations to show you here.
+                        This might be an error, or it might be that you don't have any playtime on record.
+                        You can hit refresh, or come back once you've played a game.
+                    </p>
+
+                    <p>
+                        Perhaps you'd like to check out a random game?
+                    </p>
                 </div>
 
             </div>
