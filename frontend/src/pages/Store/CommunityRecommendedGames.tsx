@@ -9,11 +9,11 @@ function CommunityRecommendedGames(){
 
                 <div className="flex gap-3 pb-4 overflow-x-auto">
                     {Array.from({length: 2}).map((_, index) => {
-                        return <div key={index} className="">
-                            <div className="w-88 aspect-16/7.5 bg-blue-300"></div>
+                        return <div key={index} className="border">
+                            <div className="w-88 md:w-184 aspect-16/7.5 bg-blue-300"></div>
 
                             <div className="px-5 pt-3 pb-6 bg-gray-300">
-                                <div className="flex gap-2.5 flex-col">
+                                <div className="flex gap-2.5 md:gap-2 flex-col">
                                     <p className="font-bold text-lg">Servant of the Lake</p>
                                     <p className="font-medium text-xs line-clamp-4">
                                         "Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -21,6 +21,10 @@ function CommunityRecommendedGames(){
                                         consectetur laudantium obcaecati voluptatum quas illum cum, earum iste officiis 
                                         saepe!"
                                     </p>
+
+                                    <div className="hidden border md:flex justify-center">
+                                        <p className="font-medium text-sm">Read Entire Review</p>
+                                    </div>
 
                                     <div className="border flex gap-2 items-start">
                                         <div className="w-10 aspect-square bg-gray-700"></div>

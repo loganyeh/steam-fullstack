@@ -82,7 +82,7 @@ function Store(){
                 <Footer />
 
                 {/* Note */}
-                <div className="flex gap-5 flex-col px-2 text-xs">
+                <div className="flex gap-5 flex-col px-2 md:w-1/2 text-xs">
                     <p>
                         We don't have any recommendations to show you here.
                         This might be an error, or it might be that you don't have any playtime on record.

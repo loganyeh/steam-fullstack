@@ -7,7 +7,7 @@ function Footer(){
         <>
             <footer className="border flex gap-6 flex-col py-10 px-8">
                 {/* links */}
-                <div className="border grid gap-10 grid-cols-2">
+                <div className="border grid gap-10 grid-cols-2 md:grid-cols-4">
                     {footerData.map((footer, index) => {
                         return <div key={index} className="flex gap-3 flex-col">
                             <p className="font-bold text-sm">{footer.title}</p>
@@ -29,12 +29,12 @@ function Footer(){
                     </div>
 
                     <div className="flex justify-center items-center bg-gray-300">
-                        <p className="px-2 font-medium text-xl tracking-widest">VALVE</p>
+                        <p className="px-2 font-medium text-2xl tracking-widest">VALVE</p>
                     </div>
                 </div>
 
                 {/* Copyright */}
-                <p className="text-xs">
+                <p className="text-xs md:w-1/2">
                     © 2026 Valve Corporation. All rights reserved. 
                     All trademarks are property of their respective 
                     owners in the US and other countries.
@@ -51,7 +51,7 @@ function Footer(){
                 </div> 
 
                 {/* Button */}
-                <button className="border px-4 py-2 w-fit font-medium text-sm bg-blue-400 text-white rounded-sm">Get Mobile Apps</button>
+                <button className="md:hidden border px-4 py-2 w-fit font-medium text-sm bg-blue-400 text-white rounded-sm">Get Mobile Apps</button>
             </footer>
         </>
     );

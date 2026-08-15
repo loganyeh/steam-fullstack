@@ -11,7 +11,7 @@ function MenuDropdown(){
                     <i className='bx bx-chevron-down text-lg'></i>
                 </div>
 
-                <SearchTheStore className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:max-w-md" />
+                <SearchTheStore className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:max-w-lg" />
 
                 {/* wishlist */}
                 <div className="flex gap-1 items-center">

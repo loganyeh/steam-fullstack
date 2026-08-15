@@ -9,8 +9,8 @@ function Under10Games(){
 
                 <div className="border flex gap-3.5 pb-3 overflow-x-auto">
                     {Array.from({length: 2}).map((_, index) => {
-                        return <div key={index} className="w-62 shrink-0">
-                            <div className="aspect-16/9.5 bg-gray-300"></div>
+                        return <div key={index} className="w-62 md:w-50 shrink-0">
+                            <div className="aspect-16/9 bg-gray-300"></div>
 
                             <div className="flex justify-end font-bold text-xs">
                                 <div className="border px-1.5 py-1.5">-75%</div>
