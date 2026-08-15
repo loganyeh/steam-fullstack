@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 // import game data
 import { featuredAndRecommended, discountsAndEvents, yourPersonalCalendar, personalRecommendations,
     gameCat1, trendingGamesTabs, popularNewReleases, browseByCategory, socialMediaIcons
@@ -10,19 +12,41 @@ import { footerData } from "../../data/gamesData";
 import Header from "./Header";
 
 function Store(){
+    const [toggleMenuDropdown, setToggleMenuDropdown] = useState(false);
 
-    // scroll logic
-    function handleScroll(){
-        console.log(window.scrollY);
-    };
-
+    useEffect(() => {
+        let prevScroll = 0;
+    
+        function handleScroll() {
+            const currentScroll = window.scrollY;
+    
+            if (currentScroll <= 400) {
+                setToggleMenuDropdown(false);
+            } else if (currentScroll < prevScroll) {
+                // scrolling up
+                setToggleMenuDropdown(false);
+            } else if (currentScroll > prevScroll) {
+                // scrolling down
+                setToggleMenuDropdown(true);
+            }
+    
+            prevScroll = currentScroll;
+        }
+    
+        window.addEventListener("scroll", handleScroll);
+    
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+    
     return(
         <> 
             <Header />
 
-            <div onClick={() => handleScroll()} className="border pt-14 pb-32">
+            <div className="border pt-14 pb-32">
                 {/* Menu Dropdown & Wishlist */}
-                <section className="border flex justify-between px-2 py-3">
+                {!toggleMenuDropdown && <section className="border border-red-600 fixed z-10 flex justify-between px-2 py-3 w-full bg-gray-200">
                     {/* menu dropdown */}
                     <div className="flex items-center">
                         <p className="font-bold text-sm">Menu</p>
@@ -35,7 +59,7 @@ function Store(){
                         <p className="font-semibold text-xs">Wishlist</p>
                     </div>
 
-                </section>
+                </section>}
 
                 {/* Game Update Thumbnail */}
                 {/* <section className="aspect-[16/11.5] bg-blue-300">
@@ -43,7 +67,7 @@ function Store(){
                 </section> */}
 
                 {/* body */}
-                <div className="flex gap-7 flex-col">
+                <div className="flex gap-7 flex-col mt-[46px]">
                     {/* Featured & Recommended */}
                     <section className="border flex gap-1.5 flex-col px-2">
                         <p className="font-bold">Featured & Recommended</p>
