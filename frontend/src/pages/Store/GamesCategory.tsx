@@ -1,11 +1,12 @@
-import { gameCat1 } from "../../data/gamesData";
+import type { GamesCategoryType } from "../../data/gamesData";
 import GrayButton from "../../components/GrayButton";
 
 type GamesCategoryProps = {
     section: string,
+    gameData: GamesCategoryType[]
 };
 
-function GamesCategory({ section }: GamesCategoryProps ){
+function GamesCategory({ section, gameData }: GamesCategoryProps ){
 
     return(
         <>
@@ -18,7 +19,7 @@ function GamesCategory({ section }: GamesCategoryProps ){
                     </div>
 
                     <div className="grid gap-3 grid-cols-2 p-1.5 bg-gray-300">
-                        {gameCat1.map((game, index) => {
+                        {gameData.map((game, index) => {
                             return <div key={index} className="shrink-0">
                                 <img src={game.img} alt={game.title} className="aspect-[16/6] object-cover"/>
 

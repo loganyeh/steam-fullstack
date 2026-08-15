@@ -92,7 +92,12 @@ export const yourRecommendedGamesData = [
     },
 ];
 
-export const gameCat1 = [
+export type GamesCategoryType = {
+    title: string,
+    img: string,
+};
+
+export const sportsGames: GamesCategoryType[] = [
     {
         title: "EA PLAY",
         img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1289670/ceda3c4ec3c3f9e0f9d64d9a8edf392a8a445f26/header.jpg?t=1786039203",
@@ -114,19 +119,7 @@ export const gameCat1 = [
 export const gameCat2 = [
     {
         title: "EA PLAY",
-        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1289670/ceda3c4ec3c3f9e0f9d64d9a8edf392a8a445f26/header.jpg?t=1786039203",
-    },
-    {
-        title: "Way of the Hunter",
-        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1288320/header.jpg?t=1774533447",
-    },
-    {
-        title: "Need for Speed™ Heat",
-        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222680/header.jpg?t=1777414224",
-    },
-    {
-        title: "MX vs ATV Legends",
-        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1205970/95c60ae07c38d7b7a9d8f81fde86e030c7964e14/header.jpg?t=1785868318",
+        img: "",
     },
 ];
 
@@ -203,8 +196,6 @@ export const under10 = [
         img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1313140/19f32bb477a6e9d058e05193b4e282149bd70644/header.jpg?t=1769836674",
     },
 ];
-
-
 
 export const footerData = [
     {

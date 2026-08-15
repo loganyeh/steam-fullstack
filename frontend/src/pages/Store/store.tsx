@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import MenuDropdown from "./MenuDropdown";
+import SpotlightGame from "./SpotlightGame";
 import FeaturedAndRecommended from "./FeaturedAndRecommended";
 import DiscountsAndEvents from "./DiscountsAndEvents";
 import SendAGiftCard from "./SendAGiftCard";
@@ -14,6 +15,9 @@ import TrendingGames from "./TrendingGames";
 import BrowseByCategory from "./BrowseByCategory";
 import CommunityRecommendedGames from "./CommunityRecommendedGames";
 import Under10Games from "./Under10Games";
+
+// import data
+import { sportsGames } from "../../data/gamesData";
 
 function Store(){
     const [toggleMenuDropdown, setToggleMenuDropdown] = useState(false);
@@ -52,7 +56,7 @@ function Store(){
                 {/* Menu Dropdown & Wishlist */}
                 {!toggleMenuDropdown && <MenuDropdown />}
 
-                {/* Spotlight Game */}
+                <SpotlightGame />
 
                 {/* body */}
                 <div className="flex gap-7 flex-col mt-[46px]">
@@ -62,7 +66,7 @@ function Store(){
                     <YourPersonalCalendar />
                     <YourRecommendedGames />
                     <DiscoveryQueue />
-                    <GamesCategory section="SPORTS" />
+                    <GamesCategory section="SPORTS" gameData={sportsGames} />
                     <TrendingGames />
                     <BrowseByCategory />
                     <CommunityRecommendedGames />
