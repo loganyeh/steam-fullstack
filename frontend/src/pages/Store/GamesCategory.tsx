@@ -1,0 +1,42 @@
+import { gameCat1 } from "../../data/gamesData";
+
+type GamesCategoryProps = {
+    section: string,
+};
+
+function GamesCategory({ section }: GamesCategoryProps ){
+
+    return(
+        <>
+            <section className="border flex gap-2 flex-col px-2">
+                <div className="flex gap-2 flex-col">
+                    {/* section header */}
+                    <div>
+                        <p className="font-bold">{section} GAMES</p>
+                        <p className="text-xs">Featured tag</p>
+                    </div>
+
+                    <div className="grid gap-3 grid-cols-2 p-1.5 bg-gray-300">
+                        {gameCat1.map((game, index) => {
+                            return <div key={index} className="shrink-0">
+                                <img src={game.img} alt={game.title} className="aspect-[16/6] object-cover"/>
+
+                                <div className="flex justify-end font-bold text-xs">
+                                    <div className="border px-1.5 py-1.5">-75%</div>
+                                    <div className="border px-0.5 py-1.5 line-through">$29.99</div>
+                                    <div className="border px-0.5 py-1.5">$7.49</div>
+                                </div>
+                            </div>
+                        })}
+                    </div>       
+                </div>
+
+                <div className="flex justify-end">
+                    <button className="px-4.5 py-1 font-semibold text-xs bg-gray-300 rounded-sm">See More</button>
+                </div>
+            </section>
+        </>
+    );
+};
+
+export default GamesCategory;

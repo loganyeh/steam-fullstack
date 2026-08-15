@@ -1,6 +1,6 @@
 var temp = "™"
 
-export const featuredAndRecommended = [
+export const featuredAndRecommendedData = [
     {
         title: "HELLDIVERS 2™",
         img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553850/850e2f9e5bb15c5706bb9a1edc832f4f782e8be5/header.jpg?t=1786525389",
@@ -33,7 +33,7 @@ export const featuredAndRecommended = [
     },
 ];
 
-export const discountsAndEvents = [
+export const discountsAndEventsData = [
     {
         title: "World War Z",
         img: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/699130/b35277055fbb7e07c26c5e31e4398684c6461d53/header.jpg?t=1786453804",
@@ -44,7 +44,7 @@ export const discountsAndEvents = [
     },
 ];
 
-export const yourPersonalCalendar = [
+export const yourPersonalCalendarData = [
     {
         day: "MON",
         date: "7/25",
@@ -79,7 +79,7 @@ export const yourPersonalCalendar = [
     },
 ];
 
-export const personalRecommendations = [
+export const yourRecommendedGamesData = [
     {
         title: "eFootball™", 
         img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1665460/9182eac331f562e4a3aab2384b6759c3e1a95797/header.jpg?t=1782314037",
@@ -159,7 +159,7 @@ export const popularNewReleases = [
     },
 ];
 
-export const browseByCategory = [
+export const browseByCategoryData = [
     {
         category: "ACTION",
         img: "bg-red-300"
