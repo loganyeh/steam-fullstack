@@ -18,7 +18,7 @@ function GamesCategory({ section, gameData }: GamesCategoryProps ){
                         <p className="text-xs">Featured tag</p>
                     </div>
 
-                    <div className="grid gap-3 grid-cols-2 p-1.5 bg-gray-300">
+                    <div className="grid gap-3 grid-cols-2 p-1.5 md:px-4 md:py-2 bg-gray-300">
                         {gameData.map((game, index) => {
                             return <div key={index} className="shrink-0">
                                 <img src={game.img} alt={game.title} className="aspect-[16/6] object-cover"/>

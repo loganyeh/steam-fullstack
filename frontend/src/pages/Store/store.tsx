@@ -56,17 +56,23 @@ function Store(){
                 {/* Menu Dropdown & Wishlist */}
                 {!toggleMenuDropdown && <MenuDropdown />}
 
-                <SpotlightGame />
+                {/* <SpotlightGame /> */}
 
                 {/* body */}
                 <div className="flex gap-7 flex-col mt-[46px]">
                     <FeaturedAndRecommended />
                     <DiscountsAndEvents />
-                    <SendAGiftCard />
+                    <div className="md:hidden">
+                        <SendAGiftCard />
+                    </div>
                     <YourPersonalCalendar />
                     <YourRecommendedGames />
                     <DiscoveryQueue />
-                    <GamesCategory section="SPORTS" gameData={sportsGames} />
+                    <div className="md:grid md:gap-1 md:grid-cols-2">
+                        {Array.from({length: 2}).map((_, index) => {
+                            return <GamesCategory key={index} section="SPORTS" gameData={sportsGames} />
+                        })}
+                    </div>
                     <TrendingGames />
                     <BrowseByCategory />
                     <CommunityRecommendedGames />

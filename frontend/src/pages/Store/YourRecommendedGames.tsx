@@ -11,7 +11,7 @@ function YourRecommendedGames(){
                     
                     <div className="flex gap-4 pb-5 overflow-x-auto">
                         {yourRecommendedGamesData.map((game, index) => {
-                            return <div key={index} className="w-62 shrink-0">
+                            return <div key={index} className="w-62 md:w-48 shrink-0">
                                 <div className="bg-gray-300 aspect-16/9">
                                     <img src={game.img} alt="" className="h-full w-full object-cover"/>
                                 </div>

@@ -1,15 +1,17 @@
 
+type SendAGiftCardProps = {
+    className?: string,
+};
 
-function SendAGiftCard(){
+function SendAGiftCard({ className }: SendAGiftCardProps ){
 
     return(
         <>
-            <section className="relative flex justify-end mx-2">
-                <div className="pl-14 py-2 max-w-xs w-full font-semibold bg-blue-400 rounded">
-                    Send a Gift Card
+            <section className="flex justify-end md:w-full">
+                <div className={`relative flex justify-center md:justify-end py-2 md:pr-2 w-full bg-blue-400 rounded`}>
+                    <p className="font-semibold md:text-sm text-white">Send a Gift Card</p>
+                    <img src="https://cdn.akamai.steamstatic.com/store/home/gc_fan.webp" alt="" className="absolute left-0 top-1/2 -translate-y-1/2 h-[115%]" />
                 </div>
-
-                <img src="https://cdn.akamai.steamstatic.com/store/home/gc_fan.webp" alt="" className="absolute left-0 top-1/2 -translate-y-1/2 h-[115%]" />
             </section>
         </>
     );
