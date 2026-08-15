@@ -1,4 +1,4 @@
-
+import GrayButton from "../../components/GrayButton";
 
 function CommunityRecommendedGames(){
 
@@ -44,9 +44,7 @@ function CommunityRecommendedGames(){
                     })}
                 </div>
 
-                <div className="flex justify-end">
-                    <button className="px-4.5 py-1 font-semibold text-xs bg-gray-300 rounded-sm">Customize, Explore by Tag, & More</button>
-                </div>
+                <GrayButton text="Customize, Explore by Tag, & More" />
             </section>
         
         </>

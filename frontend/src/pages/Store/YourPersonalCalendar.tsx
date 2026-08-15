@@ -1,3 +1,4 @@
+import GrayButton from "../../components/GrayButton";
 import { yourPersonalCalendarData } from "../../data/gamesData";
 
 function YourPersonalCalendar(){
@@ -36,9 +37,7 @@ function YourPersonalCalendar(){
                     </div>       
                 </div>
 
-                <div className="flex justify-end">
-                    <button className="px-4.5 py-1 font-semibold text-xs bg-gray-300 rounded-sm">Explore your full Personal Calendar</button>
-                </div>
+                <GrayButton text="Explore your full Personal Calendar" />
             </section>
         </>
     );

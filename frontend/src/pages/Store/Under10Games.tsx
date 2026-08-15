@@ -1,4 +1,4 @@
-
+import GrayButton from "../../components/GrayButton";
 
 function Under10Games(){
 
@@ -25,11 +25,8 @@ function Under10Games(){
                     <p className="font-semibold text-xs">See more:</p>
 
                     <div className="flex gap-1.5">
-                        {Array.from({length: 2}).map((_, index) => {
-                            return <div key={index} className="flex justify-end">
-                                <button className="px-4.5 py-1 font-semibold text-xs bg-gray-300 rounded-sm">Under $10</button>
-                            </div>
-                        })}
+                        <GrayButton text="Under $10" />
+                        <GrayButton text="Under $5" />
                     </div>
                 </div>
             </section>

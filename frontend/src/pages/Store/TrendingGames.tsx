@@ -1,4 +1,5 @@
 import { trendingGamesTabs, popularNewReleases } from "../../data/gamesData";
+import GrayButton from "../../components/GrayButton";
 
 function TrendingGames(){
 
@@ -48,9 +49,9 @@ function TrendingGames(){
                 {/* gray buttons */}
                 <div className="flex gap-1 flex-col items-end">
                     <p className="font-semibold text-sm">See more:</p>
-                    <button className="px-4.5 py-1 font-semibold text-xs bg-gray-300 rounded-sm">Popular New Releases</button>
+                    <GrayButton text="Popular New Releases" />
                     <p className="font-semibold text-sm">or</p>
-                    <button className="px-4.5 py-1 font-semibold text-xs bg-gray-300 rounded-sm">All New Releases</button>
+                    <GrayButton text="All New Releases" />
                 </div>
             </div>
         </>

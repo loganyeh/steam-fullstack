@@ -1,4 +1,5 @@
 import { discountsAndEventsData } from "../../data/gamesData";
+import GrayButton from "../../components/GrayButton";
 
 function DiscountsAndEvents(){
 
@@ -31,9 +32,7 @@ function DiscountsAndEvents(){
                     </div>
                 </div>
 
-                <div className="flex justify-end">
-                    <button className="px-4.5 py-1 font-semibold text-xs bg-gray-300 rounded-sm">See More</button>
-                </div>
+                <GrayButton text="See more" />
             </section>
         
         </>
