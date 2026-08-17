@@ -42,6 +42,14 @@ export const discountsAndEventsData = [
         title: "Way of the Hunter 2",
         img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2543830/181f9a060b7dd477252979321ab4baf1818aafc1/capsule_616x353.jpg?t=1786347202",
     },
+    {
+        title: "World War Z",
+        img: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/699130/b35277055fbb7e07c26c5e31e4398684c6461d53/header.jpg?t=1786453804",
+    },
+    {
+        title: "Way of the Hunter 2",
+        img: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2543830/181f9a060b7dd477252979321ab4baf1818aafc1/capsule_616x353.jpg?t=1786347202",
+    },
 ];
 
 export const yourPersonalCalendarData = [
